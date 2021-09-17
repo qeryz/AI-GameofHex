@@ -1,0 +1,37 @@
+The game of hex is a 2 player(Black and White) deterministic game of perfect information. 
+Meaning, during gameplay every player can observe the whole game state. There’s no hidden information, 
+hence everyone has perfect information about the whole game at any given time.
+
+As a result, we can always compute which player is currently ahead and which one is behind.
+There are several ways of doing this. For a game like Chess, one approach to evaluate the current game state 
+is to add up all the remaining white pieces on the board and subtract all the remaining black ones. 
+Doing this will produce a single value where a large value favors white and a small value favors black. 
+This type of function is called an evaluation function.
+
+Based on this evaluation function, we could say white tries to maximize the value while black tries to
+minimize the value. Computationally this could be evaluated using the Minimax Algorithm, which would
+in turn allow us to pick the best possible moves that maximize our outcomes.
+
+The Minimax Algorithm works well for simple games such as Tic Tac Toe. But for more complex games such
+as chess and hex, it becomes computationally infeasible to implement. Luckily, we could still implement
+Minimax Algorithm by simply optimizing it using Alpha Beta Pruning, which ignores the evaluation of the
+worst moves by players.
+
+With this, it seems as though the Minimax Algorithm combined with Alpha Beta Pruning is enough to build
+AI's for most 2 player deterministic games of perfect information. This is not true. That method relies on
+having a defined and robust evaluation function to determine the values of the current game state. Recall
+for Chess, the example of an evaluation function relied on counting remaining white pieces on the board
+and subtracting all the remaining black ones. This is a good base of evaluation, but for these games
+and others, there are more complexities involved in the evaluation functions.
+
+Fortunately, there is a general workaround to games that would ordinarily have complex evaluation
+functions, this is randomness. Specifically, in this case, Monte Carlo simulations or MCS. 
+A MCS function runs simulations in a game, then determines the path of the highest potential win outcome.
+MCS generates and plays multiple random games from the current state of the board. For instance, if
+two players at a certain given state of a game were to launch a thousand random games played from
+that state, and player white were to win 80% of the time, that tells us that there must be something
+about that state which gives player white an advantage. 
+
+MCS is considered a heuristic approach as it bypasses having to come up with elaborate evaluation
+functions but instead produces multiple simulations to come up with a solution that may not be the
+most optimal move but instead an approximation to the most optimal move.
