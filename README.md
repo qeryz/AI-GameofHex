@@ -1,4 +1,4 @@
-Foreword:
+### Foreword
 The AI for the game of Hex employs a heuristic approach in contrast to standard brute-force algorithms of most turn based 
 games (i.e.  Minimax algorithm with Alpha-beta pruning). To approximate the most optimal move for the AI, every available 
 position in the  board is evaluated to check for the best next move. A win probability (in a set of >= 1000 random simulations) 
@@ -9,7 +9,7 @@ game board, along with other changes as noted in the README.
 As a result, the AI is able to determine an optimal move on a 11 x 11 game board in under 30 seconds.
 
 
-BODY:
+### Body
 The board is represented by a graph.
 Each board position corresponds to one node identified by a number and marked with a sign
 Signs: '.' = available, 'X' = player1, 'O' = player2.
@@ -25,7 +25,7 @@ A win probability (probability of win in a set of >= 1000 random simulations) is
 higher probability is chosen.
 
 
-Optimizations:
+### Optimizations
 To optimize the probability calculation, a simulation is interrupted before its end if that position can't beat the best current
 probability anymore. 
 Many internal structures of the graph were modified to optimize Monte Carlo evaluation, resulting in significant
@@ -60,7 +60,7 @@ And then once more if we check for NORTH - SOUTH connectivity. The computation r
 As a result, in a 11x11 board, the AI is able to choose the best move as best as ~30 seconds in some instances. 
 
 
-NOTES FOR POSSIBLE FURTHER IMPROVEMENT:
+### NOTES FOR POSSIBLE FURTHER IMPROVEMENT
 The AI works fairly well provided the AI goes first(to overcome absence of a swap rule). But at times there are moves
 the AI decides on that are not at its full advantage. This is expected as the Monte Carlo approach does not give
 the most optimal move but an approximation to the most optimal move.
