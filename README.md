@@ -11,7 +11,7 @@ game board, along with other changes as noted later in this README.
 As a result, the AI is able to determine an optimal move on a 11 x 11 game board in under 30 seconds.
 
 
-### Body
+### Implementation
 The board is represented by a graph.
 Each board position corresponds to one node identified by a number and marked with a sign.
 
