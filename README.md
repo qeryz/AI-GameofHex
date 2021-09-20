@@ -11,7 +11,7 @@ As a result, the AI is able to determine an optimal move on a 11 x 11 game board
 
 ### Body
 The board is represented by a graph.
-Each board position corresponds to one node identified by a number and marked with a sign
+Each board position corresponds to one node identified by a number and marked with a sign.
 Signs: '.' = available, 'X' = player1, 'O' = player2.
 There is an edge connecting two nodes if those nodes are neighbor positions in the board. 
 There are 4 extra virtual nodes (WEST, EAST, NORTH and SOUTH) connected to nodes of the start and end positions in the board.
@@ -50,10 +50,13 @@ E.g., in a 3x3 game of hex:
 
 Without virtual nodes, one would have to call a BFS function multiple times to determine if there exists a path
 between WEST and EAST nodes. 
+
 For instance, one would have to call the isConnected function 9 times to determine a winner from 
 WEST node 0 to EAST node 2, then to EAST node 5, then to EAST node 8.
 Then again from WEST node 3 to EAST node 2, then to EAST node 5, then to EAST node 8.
 And finally, from WEST node 6 to EAST nodes 2, 5, and 8.
+In other words, we would have n^2 operations for n nodes.
+
 With the creation of the virtual nodes. We connect WEST nodes 0,3,8 to WEST node(or node 9, which isnt displayed, hence virtual)
 and connected EAST nodes 2,5,8 to EAST node(or node 10, also not displayed on the board). 
 Thus, the BFS isConnected function would only need to be called once to check for connectivity from WEST - EAST.
