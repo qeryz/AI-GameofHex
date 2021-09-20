@@ -3,7 +3,7 @@ The AI for the game of Hex employs a heuristic approach in contrast to standard 
 games (i.e.  Minimax algorithm with Alpha-beta pruning). 
 
 To approximate the most optimal move for the AI, every available 
-position in the  board is evaluated to check for the best next move. A win probability (in a set of >= 1000 random simulations) 
+position in the  board is evaluated to check for the best next move. A win probability (in a set of <= 1000 random simulations) 
 is calculated and the position with higher win probability is chosen. This allows the program to opt out of elaborate 
 evaluation functions of game trees to decide on the best possible move. Implementation of MCS is computationally demanding, 
 such to the extent that many optimizations were made, including changes to the internal graph structure representing the 
@@ -14,16 +14,18 @@ As a result, the AI is able to determine an optimal move on a 11 x 11 game board
 ### Body
 The board is represented by a graph.
 Each board position corresponds to one node identified by a number and marked with a sign.
+
 Signs: '.' = available, 'X' = player1, 'O' = player2.
+
 There is an edge connecting two nodes if those nodes are neighbor positions in the board. 
 There are 4 extra virtual nodes (WEST, EAST, NORTH and SOUTH) connected to nodes of the start and end positions in the board.
-WEST and EAST start 'O'. NORTH and SOUTH start 'X'.
-At each move, the selected position is marked with the player's sign and assigned edges that correspond to said position
+WEST and EAST start and end for 'O'. NORTH and SOUTH start and end for 'X'.
+At each move, the selected position is marked with the player's sign and assigned edges that correspond to said position.
 If start virtual node and end virtual node are in the same path, then there is a winner.
 
 AI plays using Monte Carlo simulations to make the best move at each round.
 To implement a best move for AI, every available position in the board is evaluated to check what is the best next move. 
-A win probability (probability of win in a set of >= 1000 random simulations) is calculated and the position with
+A win probability (probability of win in a set of <= 1000 random simulations) is calculated and the position with
 higher probability is chosen.
 
 
@@ -31,9 +33,11 @@ higher probability is chosen.
 To optimize the probability calculation, a simulation is interrupted before its end if that position can't beat the best current
 probability anymore. 
 Many internal structures of the graph were modified to optimize Monte Carlo evaluation, resulting in significant
-time reductions
+time reductions.
+
 For instance, the inclusion of virtual nodes and evaluating a win only after the MC sim game was over
-allowed a reduction in processing time of ~ 50%
+allowed a reduction in processing time of ~ 50%.
+
 E.g., in a 3x3 game of hex:
 
 ```
