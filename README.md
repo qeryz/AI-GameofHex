@@ -39,7 +39,7 @@ E.g., in a 3x3 game of hex:
 
 	0 - 1 - 2
 	 \ / \ / \
-    WEST  3 - 4 - 5   EAST
+   'WEST  3 - 4 - 5   EAST
 	   \ / \ / \
 	    6 - 7 - 8 
 
