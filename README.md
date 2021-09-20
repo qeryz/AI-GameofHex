@@ -57,7 +57,7 @@ For instance, one would have to call the isConnected function 9 times to determi
 WEST node 0 to EAST node 2, then to EAST node 5, then to EAST node 8.
 Then again from WEST node 3 to EAST node 2, then to EAST node 5, then to EAST node 8.
 And finally, from WEST node 6 to EAST nodes 2, 5, and 8.
-In other words, we would have n^2<sup>2</sup> operations for n nodes.
+In other words, we would have n<sup>2</sup> operations for n nodes.
 
 With the creation of the virtual nodes. We connect WEST nodes 0,3,8 to WEST node(or node 9, which isnt displayed, hence virtual)
 and connected EAST nodes 2,5,8 to EAST node(or node 10, also not displayed on the board). 
