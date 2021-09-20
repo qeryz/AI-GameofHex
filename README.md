@@ -1,11 +1,13 @@
 ### Foreword
-The AI for the game of Hex employs a heuristic approach in contrast to standard brute-force algorithms of most turn based 
-games (i.e.  Minimax algorithm with Alpha-beta pruning). To approximate the most optimal move for the AI, every available 
+The AI for the game of Hex employs a heuristic approach in contrast to standard brute-force algorithms for most turn based 
+games (i.e.  Minimax algorithm with Alpha-beta pruning). 
+
+To approximate the most optimal move for the AI, every available 
 position in the  board is evaluated to check for the best next move. A win probability (in a set of >= 1000 random simulations) 
 is calculated and the position with higher win probability is chosen. This allows the program to opt out of elaborate 
 evaluation functions of game trees to decide on the best possible move. Implementation of MCS is computationally demanding, 
 such to the extent that many optimizations were made, including changes to the internal graph structure representing the 
-game board, along with other changes as noted in the README. 
+game board, along with other changes as noted later in this README. 
 As a result, the AI is able to determine an optimal move on a 11 x 11 game board in under 30 seconds.
 
 
@@ -55,7 +57,7 @@ For instance, one would have to call the isConnected function 9 times to determi
 WEST node 0 to EAST node 2, then to EAST node 5, then to EAST node 8.
 Then again from WEST node 3 to EAST node 2, then to EAST node 5, then to EAST node 8.
 And finally, from WEST node 6 to EAST nodes 2, 5, and 8.
-In other words, we would have n^2 operations for n nodes.
+In other words, we would have n^2<sup>2</sup> operations for n nodes.
 
 With the creation of the virtual nodes. We connect WEST nodes 0,3,8 to WEST node(or node 9, which isnt displayed, hence virtual)
 and connected EAST nodes 2,5,8 to EAST node(or node 10, also not displayed on the board). 
