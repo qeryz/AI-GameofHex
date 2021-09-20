@@ -34,6 +34,7 @@ For instance, the inclusion of virtual nodes and evaluating a win only after the
 allowed a reduction in processing time of ~ 50%
 E.g., in a 3x3 game of hex:
 
+"
 	NORTH
 
 	0 - 1 - 2
@@ -43,6 +44,8 @@ WEST  3 - 4 - 5   EAST
 	    6 - 7 - 8 
 
 		SOUTH
+		
+"
 
 Without virtual nodes, one would have to call a BFS function multiple times to determine if there exists a path
 between WEST and EAST nodes. 
